@@ -58,37 +58,29 @@ cd timeshow_converter_tool
 Or upload and extract the ZIP archive on the server.
 
 2. Create and Activate Virtual Environment
-bash
-Копіювати код
+
 python3 -m venv env
 source env/bin/activate
 3. Install Dependencies
-bash
-Копіювати код
+
 pip install --upgrade pip
 pip install -r requirements.txt
 Usage
 CLI Mode
 Run the converter manually:
 
-bash
-Копіювати код
+
 python tsc.py
 Run test mode:
 
-bash
-Копіювати код
+
 python tsc.py test
 API Mode
 Start the FastAPI server:
 
-bash
-Копіювати код
 uvicorn tsc_api:app --host 0.0.0.0 --port 8081
 Recommended production configuration:
 
-bash
-Копіювати код
 uvicorn tsc_api:app \
   --host 0.0.0.0 \
   --port 8081 \
