@@ -52,16 +52,15 @@ timeshow_converter_tool/
 
 ### 1. Clone the Repository
 
-```bash
 git clone <repository-url>
 cd timeshow_converter_tool
 Or upload and extract the ZIP archive on the server.
 
-2. Create and Activate Virtual Environment
+### 2. Create and Activate Virtual Environment
 
 python3 -m venv env
 source env/bin/activate
-3. Install Dependencies
+### 3. Install Dependencies
 
 pip install --upgrade pip
 pip install -r requirements.txt
@@ -69,10 +68,8 @@ Usage
 CLI Mode
 Run the converter manually:
 
-
 python tsc.py
 Run test mode:
-
 
 python tsc.py test
 API Mode
@@ -90,7 +87,7 @@ uvicorn tsc_api:app \
 API will be available at:
 
 cpp
-Копіювати код
+
 http://<server-ip>:8081
 API Documentation
 When the server is running, automatic API documentation is available:
@@ -100,8 +97,7 @@ Swagger UI: http://<server-ip>:8081/docs
 ReDoc: http://<server-ip>:8081/redoc
 
 Example API Request
-bash
-Копіювати код
+
 curl -X POST http://localhost:8081/convert \
   -F "file=@input_file.ext"
 (See curl_request_example.sh and .bat for more examples.)
@@ -123,22 +119,18 @@ Performance-related options
 Load Testing
 The project includes a Locust configuration for stress and load testing.
 
-bash
-Копіювати код
 locust -f locustfile.py --host http://localhost:8081
 Open in browser:
 
 arduino
-Копіювати код
+
 http://localhost:8089
 Running as a systemd Service (Production)
 Create a systemd service file:
 
-bash
-Копіювати код
 sudo nano /etc/systemd/system/timeshow.service
 ini
-Копіювати код
+
 [Unit]
 Description=TimeShow Converter API
 After=network.target
@@ -156,15 +148,13 @@ Restart=always
 WantedBy=multi-user.target
 Enable and start the service:
 
-bash
-Копіювати код
 sudo systemctl daemon-reload
 sudo systemctl enable timeshow
 sudo systemctl start timeshow
 sudo systemctl status timeshow
 Nginx Reverse Proxy Example
 nginx
-Копіювати код
+
 server {
     listen 80;
     server_name your-domain.com;
@@ -178,8 +168,6 @@ server {
 }
 Reload Nginx:
 
-bash
-Копіювати код
 sudo nginx -t
 sudo systemctl reload nginx
 Production Recommendations
